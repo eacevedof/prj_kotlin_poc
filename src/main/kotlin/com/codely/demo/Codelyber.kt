@@ -1,9 +1,6 @@
 package com.codely.demo
 
-class Codelyber {
-    fun greet() = "Welcome to kotlin skeleton!!!"
-}
 
 fun main() {
-    println(Codelyber().greet())
+    println("Please enter a date with the format YYYY-MM-DD:")
 }
