@@ -21,9 +21,9 @@ update-branch:  ## update main branches
 	git fetch --all;
 
 	git checkout main; git reset --hard origin/main;
-	git checkout eaf-dev; git reset --hard origin/eaf-dev;
+	git checkout dev-eaf; git reset --hard origin/dev-eaf;
 
 	git checkout $(CURRENT_BRANCH);
 	git branch --sort=-committerdate
-	git diff eaf-dev main --name-only
+	git diff dev-eaf main --name-only
 
