@@ -9,11 +9,15 @@ fun main() {
     readLine().takeUnless {
         it.isNullOrEmpty()
     }?.let {
-        val input = LocalDate.parse(it)
-        println("U heeft de datum $input ingevoerd")
+        line ->
 
-        val currentDate = LocalDate.now()
-        val difference = Period.between(input, currentDate)
-        println("Het verschil tussen data $input en $currentDate is ${difference.years} jaar")
+        val input = LocalDate.parse(line).also {
+            println("U heeft de datum $it ingevoerd")
+        }
+
+        with(Period.between(input, LocalDate.now())) {
+            println("Het verschil tussen data $input is ${this.years} jaar")
+        }
+
     }
 }
