@@ -1,3 +1,6 @@
+# videos
+- https://pro.codely.com/library/introduccion-a-kotlin-tu-primera-app-174088/381069/path/step/151059315/#block--Ms4TlfD16mlwdLa7QAz
+
 # Kotlin Bootstrap (base / project skeleton)
 
 [![Software License][ico-license]][link-license]
