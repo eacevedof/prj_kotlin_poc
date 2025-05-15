@@ -1,12 +1,26 @@
 package com.codely.demo
 import java.time.LocalDate
+import java.time.Period
+import kotlin.system.exitProcess
 
 fun main() {
     println("Voer alstublieft een datum in met het formaat: YYYY-MM-DD")
-    val readLine: String? = null //readLine kan String of null zijn
-    // als readline niet null is, dant print de dag van de week
-    readLine?.let {
-        val input = LocalDate.parse(readLine!!) //deze !! tonen dat readLine nooit null is. Als het null is dan gooit een NullPointerException
-        println("U heeft getypt $input en de dag van het week is ${input.dayOfWeek}")
+
+    // in geval van een fout retorneer de functie een string: Geen waarde opgegeven
+    val inputString = getNullHandledString(readLine())
+    if (inputString.isEmpty()) {
+        println("De ingevoerde datums is ongeldig")
+        exitProcess(1)
     }
+
+    val input = LocalDate.parse(inputString)
+    println("U heeft de datum $input ingevoerd")
+
+    val currentDate = LocalDate.now()
+    val difference = Period.between(input, currentDate)
+    println("Het verschil tussen data $input en $currentDate is ${difference.years} jaar")
+}
+
+fun getNullHandledString(text: String?): String {
+    return text ?: "Geen waarde opgegeven"
 }
