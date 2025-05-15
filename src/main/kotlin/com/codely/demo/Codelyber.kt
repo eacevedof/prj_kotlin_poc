@@ -2,7 +2,11 @@ package com.codely.demo
 import java.time.LocalDate
 
 fun main() {
-    println("Please enter a date with the format YYYY-MM-DD:")
-    val input = LocalDate.parse(readLine())
-    println("You wrote $input ${input.dayOfWeek}")
+    println("Voer alstublieft een datum in met het formaat: YYYY-MM-DD")
+    val readLine: String? = null //readLine kan String of null zijn
+    // als readline niet null is, dant print de dag van de week
+    readLine?.let {
+        val input = LocalDate.parse(readLine!!) //deze !! tonen dat readLine nooit null is. Als het null is dan gooit een NullPointerException
+        println("U heeft getypt $input en de dag van het week is ${input.dayOfWeek}")
+    }
 }
